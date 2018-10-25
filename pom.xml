@@ -72,6 +72,14 @@
                     </annotationProcessorPaths>
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>1.6.0</version>
+                <configuration>
+                    <mainClass>hu.webzeppelin.vai.pacman.Main</mainClass>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
 </project>
