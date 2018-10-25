@@ -8,6 +8,6 @@ public class SwingActorRenderer implements ActorRenderer {
     @Override
     public void render(Actor actor) {
         Position position = actor.getPosition();
-        System.out.println(String.format("Rendering actor (%s) at position: %s;%s", actor, position.getX(), position.getY()));
+        System.out.println(String.format("Rendering actor (%s) at position: [%s;%s]", actor, position.getX(), position.getY()));
     }
 }
