@@ -1,13 +1,12 @@
 package hu.webzeppelin.vai.pacman;
 
 import dagger.Component;
-import hu.webzeppelin.vai.pacman.render.RenderModule;
-
+import hu.webzeppelin.vai.pacman.render.swing.SwingRenderModule;
 import javax.inject.Singleton;
 
 @Singleton
 @Component(modules = {
-        RenderModule.class
+    SwingRenderModule.class
 })
 public interface PacMan {
     PacManEngine engine();

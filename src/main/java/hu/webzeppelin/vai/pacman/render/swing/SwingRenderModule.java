@@ -1,12 +1,12 @@
-package hu.webzeppelin.vai.pacman.render;
+package hu.webzeppelin.vai.pacman.render.swing;
 
 import dagger.Module;
 import dagger.Provides;
-import hu.webzeppelin.vai.pacman.render.swing.SwingActorRenderer;
-import hu.webzeppelin.vai.pacman.render.swing.SwingMapRenderer;
+import hu.webzeppelin.vai.pacman.render.ActorRenderer;
+import hu.webzeppelin.vai.pacman.render.MapRenderer;
 
 @Module
-public class RenderModule {
+public class SwingRenderModule {
 
     @Provides
     public static ActorRenderer actorRenderer() {
