@@ -5,6 +5,13 @@ import hu.webzeppelin.vai.pacman.actor.Position;
 import hu.webzeppelin.vai.pacman.render.ActorRenderer;
 
 public class SwingActorRenderer implements ActorRenderer {
+
+    private final DrawablePanel drawablePanel;
+
+    public SwingActorRenderer(DrawablePanel drawablePanel) {
+        this.drawablePanel = drawablePanel;
+    }
+
     @Override
     public void render(Actor actor) {
         Position position = actor.getPosition();
