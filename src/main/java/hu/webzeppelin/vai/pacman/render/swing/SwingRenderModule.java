@@ -1,5 +1,6 @@
 package hu.webzeppelin.vai.pacman.render.swing;
 
+import com.google.common.eventbus.EventBus;
 import dagger.Module;
 import dagger.Provides;
 import hu.webzeppelin.vai.pacman.render.ActorRenderer;
@@ -12,8 +13,14 @@ public class SwingRenderModule {
 
     @Provides
     @Singleton
-    public static GuiRenderer guiRenderer() {
-        return new SwingGuiRendererImpl();
+    public static EventBus eventBus() {
+        return new EventBus();
+    }
+
+    @Provides
+    @Singleton
+    public static GuiRenderer guiRenderer(EventBus eventBus) {
+        return new SwingGuiRendererImpl(eventBus);
     }
 
     @Provides
@@ -24,8 +31,10 @@ public class SwingRenderModule {
 
     @Provides
     @Singleton
-    public static DrawablePanel drawablePanel(DrawablePanelHolder drawablePanelHolder) {
-        return drawablePanelHolder.getDrawablePanel();
+    public static DrawablePanel drawablePanel(DrawablePanelHolder drawablePanelHolder, EventBus eventBus) {
+        DrawablePanel drawablePanel = drawablePanelHolder.getDrawablePanel();
+        drawablePanel.registerTo(eventBus);
+        return drawablePanel;
     }
 
     @Provides

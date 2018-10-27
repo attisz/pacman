@@ -1,10 +1,13 @@
 package hu.webzeppelin.vai.pacman.render.swing;
 
+import com.google.common.eventbus.Subscribe;
+import hu.webzeppelin.vai.pacman.event.EventBusSubscriber;
+import hu.webzeppelin.vai.pacman.event.TickEvent;
 import java.awt.*;
 import java.util.concurrent.atomic.AtomicLong;
 import javax.swing.*;
 
-public class DrawablePanel extends JPanel {
+public class DrawablePanel extends JPanel implements EventBusSubscriber {
 
     private AtomicLong counter = new AtomicLong(0);
 
@@ -21,5 +24,10 @@ public class DrawablePanel extends JPanel {
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
         g.drawString(String.format("This is my custom Panel!"), 10, 20 + (int) counter.getAndIncrement());
+    }
+
+    @Subscribe
+    public void handle(TickEvent tickEvent) {
+        repaint();
     }
 }
